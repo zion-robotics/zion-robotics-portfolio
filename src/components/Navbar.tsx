@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import zionLogo from "@/assets/zion-logo.png";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -32,7 +33,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 font-orbitron font-bold text-lg tracking-wider text-foreground">
-            <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_hsl(191,100%,50%)]" />
+            <img src={zionLogo} alt="Zion Robotics" className="w-8 h-8 object-contain" />
             Zion Robotics
           </Link>
 

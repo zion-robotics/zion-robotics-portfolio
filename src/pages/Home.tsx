@@ -97,7 +97,7 @@ const Home = () => {
             {featured.map((p: any, i: number) => (
               <div key={p.id} className={`reveal glass-card rounded-2xl p-6 flex flex-col`} style={{ transitionDelay: `${i * 0.1}s` }}>
                 <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
-                <p className="font-body text-sm text-muted-foreground mb-4 flex-1">{p.shortDescription}</p>
+                <p className="font-body text-sm text-muted-foreground mb-4 flex-1">{p.fullDescription}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {p.tags.map((t: string) => (
                     <span key={t} className="text-xs font-body text-accent/80 bg-accent/5 px-2 py-0.5 rounded-full">{t}</span>
