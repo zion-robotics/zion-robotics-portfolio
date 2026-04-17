@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import AnimatedLetters from "../components/AnimatedLetters";
 
 // EmailJS placeholders — replace with your actual credentials
 const SERVICE_ID = "YOUR_SERVICE_ID";
