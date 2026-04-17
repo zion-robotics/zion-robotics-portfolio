@@ -33,7 +33,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 font-orbitron font-bold text-lg tracking-wider text-foreground">
-            <img src={zionLogo} alt="Zion Robotics" className="w-8 h-8 rounded-full object-contain" />
+            <img src={zionLogo} alt="Zion Robotics" className="w-8 h-8 rounded-full object-cover" />
             Zion Robotics
           </Link>
 
