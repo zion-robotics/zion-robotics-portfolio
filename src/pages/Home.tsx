@@ -107,17 +107,37 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Tech marquee */}
+      <section className="py-10 border-y border-accent/10 bg-secondary/20 overflow-hidden">
+        <div className="marquee-track gap-12 px-6">
+          {[...Array(2)].map((_, dup) => (
+            <div key={dup} className="flex items-center gap-12 shrink-0">
+              {["React", "TypeScript", "Tailwind", "Node.js", "Sanity CMS", "Paystack", "Vercel", "Lovable", "Robotics", "AI"].map((t) => (
+                <span key={`${dup}-${t}`} className="font-orbitron text-2xl md:text-3xl font-bold text-muted-foreground/40 hover:text-accent transition-colors whitespace-nowrap">
+                  {t} <span className="text-accent/30 mx-6">◆</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Featured Projects */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="reveal font-orbitron text-2xl md:text-3xl font-bold text-foreground mb-12 text-center">
-            Featured Work
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 aurora-bg opacity-40" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <h2 className="reveal-blur font-orbitron text-2xl md:text-4xl font-bold text-foreground mb-12 text-center">
+            Featured <span className="shimmer-text">Work</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {featured.map((p: Project, i: number) => (
-              <div key={p.id} className={`reveal glass-card rounded-2xl p-6 flex flex-col reveal-delay-${i}`}>
+              <div key={p.id} className={`reveal-blur reveal-delay-${i} glass-card tilt-card rounded-2xl p-6 flex flex-col`}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-orbitron text-xs text-accent/60">0{i + 1}</span>
+                  <span className="text-[10px] uppercase tracking-widest font-body text-accent/70 px-2 py-0.5 border border-accent/30 rounded-full">{p.status}</span>
+                </div>
                 <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
-                <p className="font-body text-sm text-muted-foreground mb-4 flex-1">{p.fullDescription}</p>
+                <p className="font-body text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{p.fullDescription}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {p.tags.map((t: string) => (
                     <span key={t} className="text-xs font-body text-accent/80 bg-accent/5 px-2 py-0.5 rounded-full">{t}</span>
@@ -127,9 +147,9 @@ const Home = () => {
                   href={p.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-body text-sm text-accent hover:text-foreground transition-colors"
+                  className="font-body text-sm text-accent hover:text-foreground transition-colors group"
                 >
-                  View Project →
+                  View Project <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </a>
               </div>
             ))}
