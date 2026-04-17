@@ -58,7 +58,7 @@ const Home = () => {
 
         {/* Animated orbs */}
         <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-primary/25 blur-3xl float-y" />
-        <div className="absolute bottom-1/4 -right-20 w-[28rem] h-[28rem] rounded-full bg-accent/20 blur-3xl float-y" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-1/4 -right-20 w-[28rem] h-[28rem] rounded-full bg-accent/20 blur-3xl float-y orb-delay" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <p className="hero-reveal hero-delay-1 font-exo text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">

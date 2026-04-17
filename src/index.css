@@ -105,6 +105,11 @@
   box-shadow: 0 0 20px hsla(191, 100%, 50%, 0.3);
 }
 
+/* Animation delay utilities */
+.orb-delay {
+  animation-delay: 2s;
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
