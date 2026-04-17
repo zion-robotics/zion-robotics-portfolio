@@ -24,29 +24,34 @@ const Home = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden circuit-bg">
         <ParticleCanvas />
-        {/* Video bg */}
+        {/* Video bg — much more visible */}
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=60"
+          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80"
         >
           <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-          <source src="https://cdn.coverr.co/videos/coverr-a-network-of-stars-2633/1080p.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/2611250/2611250-uhd_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_90%)]" />
+
+        {/* Animated orbs */}
+        <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-primary/25 blur-3xl float-y" />
+        <div className="absolute bottom-1/4 -right-20 w-[28rem] h-[28rem] rounded-full bg-accent/20 blur-3xl float-y" style={{ animationDelay: '2s' }} />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <p className="hero-reveal hero-delay-1 font-exo text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Web Developer · Robotics Enthusiast
           </p>
-          <h1 className="hero-reveal hero-delay-2 font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold leading-tight text-foreground mb-3">
+          <h1 className="hero-reveal hero-delay-2 font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-3 shimmer-text">
             Adeogun Daniel Joseph
           </h1>
-          <p className="hero-reveal hero-delay-3 font-orbitron text-lg md:text-2xl font-semibold text-accent tracking-wider mb-4">
+          <p className="hero-reveal hero-delay-3 font-orbitron text-lg md:text-2xl font-semibold text-accent tracking-wider mb-4 glow-pulse-text">
             Zion Robotics
           </p>
           <p className="hero-reveal hero-delay-4 font-exo text-xl md:text-2xl text-foreground/90 mb-2">
@@ -59,13 +64,13 @@ const Home = () => {
           <div className="hero-reveal hero-delay-5 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/portfolio"
-              className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow"
+              className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow magnetic-btn"
             >
               See My Work
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-3.5 rounded-lg border border-accent/40 text-accent font-body font-semibold text-sm btn-ghost-glow"
+              className="px-8 py-3.5 rounded-lg border border-accent/40 text-accent font-body font-semibold text-sm btn-ghost-glow magnetic-btn"
             >
               Contact Me
             </Link>
