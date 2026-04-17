@@ -1,27 +1,48 @@
 import { useState, FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
 
-// EmailJS placeholders — replace with your actual credentials
-const SERVICE_ID = "YOUR_SERVICE_ID";
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+// ─── EmailJS Credentials ───────────────────────────────────────────────────
+const SERVICE_ID = "zion-robotics";          // 👈 Replace this
+const ADMIN_TEMPLATE_ID = "template_hyh4hbx";   // 👈 Replace this (notifies you)
+const AUTOREPLY_TEMPLATE_ID = "template_zvyrlen"; // 👈 Replace this (confirms to customer)
+const PUBLIC_KEY = "ZZhQ1Xgm8U6UCMq7L";          // 👈 Replace this
+// ──────────────────────────────────────────────────────────────────────────
 
 const Contact = () => {
   useScrollReveal();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // EmailJS integration placeholder
-    // emailjs.send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY).then(...)
-    setTimeout(() => {
-      alert("Message sent! (EmailJS placeholder — connect your credentials)");
+    setStatus("idle");
+
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      to_name: form.name,
+      message: form.message,
+    };
+
+    try {
+      // Send admin notification (to you)
+      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      // Send auto-reply (to customer)
+      await emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      setStatus("success");
       setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+    } finally {
       setSending(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -71,6 +92,19 @@ const Contact = () => {
                   placeholder="Tell me about your project..."
                 />
               </div>
+
+              {/* Status messages */}
+              {status === "success" && (
+                <p className="font-body text-sm text-accent">
+                  ⚡ Message sent! I'll get back to you within 24–48 hours.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="font-body text-sm text-red-400">
+                  Something went wrong. Try reaching me on WhatsApp directly.
+                </p>
+              )}
+
               <button
                 type="submit"
                 disabled={sending}
