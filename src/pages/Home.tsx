@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ParticleCanvas from "../components/ParticleCanvas";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -14,8 +15,23 @@ interface Project {
   featured: boolean;
 }
 
+const FULL_NAME = "Adeogun Daniel Joseph";
+
 const Home = () => {
   useScrollReveal();
+  const [typed, setTyped] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
+        setTyped(FULL_NAME.slice(0, i));
+        if (i >= FULL_NAME.length) clearInterval(interval);
+      }, 90);
+    }, 600);
+    return () => clearTimeout(startDelay);
+  }, []);
 
   const featured = projects.filter((p: Project) => p.featured);
 
@@ -48,8 +64,9 @@ const Home = () => {
           <p className="hero-reveal hero-delay-1 font-exo text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Web Developer · Robotics Enthusiast
           </p>
-          <h1 className="hero-reveal hero-delay-2 font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-3 shimmer-text">
-            Adeogun Daniel Joseph
+          <h1 className="font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-3 text-foreground min-h-[1.2em]">
+            {typed}
+            <span className="type-caret">|</span>
           </h1>
           <p className="hero-reveal hero-delay-3 font-orbitron text-lg md:text-2xl font-semibold text-accent tracking-wider mb-4 glow-pulse-text">
             Zion Robotics
@@ -88,7 +105,7 @@ const Home = () => {
       {/* Intro */}
       <section className="py-24 md:py-32 px-6 circuit-bg">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="reveal">
+          <div className="reveal-left">
             <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-foreground mb-6">
               Building the digital future
             </h2>
@@ -96,7 +113,7 @@ const Home = () => {
               I'm Daniel, a Nigerian web developer focused on building fast, reliable websites and web applications for real-world use. I create clean, high-performance digital products — from business websites to full-scale platforms — designed to deliver results.
             </p>
           </div>
-          <div className="reveal flex justify-center md:justify-end">
+          <div className="reveal-right flex justify-center md:justify-end">
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border border-accent/20 flex items-center justify-center relative">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl" />
               <div className="w-32 h-32 md:w-44 md:h-44 rounded-full border border-accent/30 bg-secondary/30 flex items-center justify-center">
@@ -104,21 +121,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Tech marquee */}
-      <section className="py-10 border-y border-accent/10 bg-secondary/20 overflow-hidden">
-        <div className="marquee-track gap-12 px-6">
-          {[...Array(2)].map((_, dup) => (
-            <div key={dup} className="flex items-center gap-12 shrink-0">
-              {["React", "TypeScript", "Tailwind", "Node.js", "Sanity CMS", "Paystack", "Vercel", "Lovable", "Robotics", "AI"].map((t) => (
-                <span key={`${dup}-${t}`} className="font-orbitron text-2xl md:text-3xl font-bold text-muted-foreground/40 hover:text-accent transition-colors whitespace-nowrap">
-                  {t} <span className="text-accent/30 mx-6">◆</span>
-                </span>
-              ))}
-            </div>
-          ))}
         </div>
       </section>
 
