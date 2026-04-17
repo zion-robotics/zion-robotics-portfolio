@@ -1,7 +1,7 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
 
-const skills = ["React", "JavaScript", "HTML/CSS", "Lovable", "Sanity CMS", "Paystack", "EmailJS", "Git", "Vercel"];
+const skills = ["React", "JavaScript", "HTML/CSS", "Sanity CMS", "Paystack", "EmailJS", "Git", "Vercel"];
 
 const About = () => {
   useScrollReveal();

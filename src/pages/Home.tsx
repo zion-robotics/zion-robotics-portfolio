@@ -83,7 +83,7 @@ const Home = () => {
               to="/portfolio"
               className="px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow btn-sheen magnetic-btn"
             >
-              See My Work
+              Explore My Projects
             </Link>
             <Link
               to="/contact"

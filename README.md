@@ -17,7 +17,7 @@ A cinematic, dark-themed developer portfolio that feels like deep space meets a 
 - Full-screen hero with animated particle/mesh grid background (CSS/canvas, lightweight)
 - Real background video (space/tech-themed, from a free stock source) with dark overlay
 - Staggered text reveal: name → brand → tagline → supporting line
-- Two CTAs: "See My Work" (solid blue) + "Contact Me" (ghost glow)
+- Two CTAs: "Explore My Projects" (solid blue) + "Contact Me" (ghost glow)
 - Animated scroll indicator
 - Asymmetric intro section with glowing decorative element
 - 3 featured project cards (glassmorphism)
@@ -27,7 +27,7 @@ A cinematic, dark-themed developer portfolio that feels like deep space meets a 
 - Two-column dramatic split layout
 - Glowing pulsing frame placeholder for profile photo
 - Full bio text with "About Me" heading
-- Skill pill badges with glow hover (React, JS, HTML/CSS, Lovable, Sanity, Paystack, EmailJS, Git, Vercel)
+- Skill pill badges with glow hover (React, JS, HTML/CSS, Sanity, Paystack, EmailJS, Git, Vercel)
 - Stats strip: "6 months experience · 3 projects shipped · 2 SaaS platforms built"
 
 ### 3. Portfolio (Work)

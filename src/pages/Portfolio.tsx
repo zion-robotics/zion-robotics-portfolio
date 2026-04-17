@@ -4,9 +4,18 @@ import { projects } from "../data/projectsData";
 import ProjectModal from "../components/ProjectModal";
 import AnimatedLetters from "../components/AnimatedLetters";
 
+interface Project {
+  id: number;
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+  tags: string[];
+  liveUrl: string;
+}
+
 const Portfolio = () => {
   useScrollReveal();
-  const [selected, setSelected] = useState<any>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
 
   return (
     <div className="page-enter pt-20 md:pt-24 circuit-bg min-h-screen">
@@ -14,7 +23,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto">
           <h1 className="font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4">
             <span className="glow-underline">
-              <AnimatedLetters text="Work" step={0.08} />
+              <AnimatedLetters text="Project" step={0.08} />
             </span>
           </h1>
           <p className="reveal-blur font-body text-muted-foreground mb-12 md:mb-16 text-sm sm:text-base md:text-lg">
@@ -22,7 +31,7 @@ const Portfolio = () => {
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {projects.map((p: any, i: number) => (
+            {projects.map((p: Project, i: number) => (
               <div
                 key={p.id}
                 className={`reveal-blur reveal-delay-${i % 5} glass-card tilt-card rounded-2xl p-5 md:p-6 flex flex-col cursor-pointer`}
