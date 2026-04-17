@@ -10,12 +10,14 @@ export const useScrollReveal = () => {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
     );
 
-    const elements = document.querySelectorAll(".reveal");
+    const elements = document.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-blur"
+    );
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  });
+  }, []);
 };
