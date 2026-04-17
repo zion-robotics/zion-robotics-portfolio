@@ -64,7 +64,7 @@ const Home = () => {
           <p className="hero-reveal hero-delay-1 font-exo text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Web Developer · Robotics Enthusiast
           </p>
-          <h1 className="font-orbitron text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-3 text-foreground min-h-[1.2em]">
+          <h1 className="font-orbitron text-3xl sm:text-5xl md:text-7xl font-bold leading-tight mb-3 text-foreground min-h-[1.4em] px-2">
             {typed}
             <span className="type-caret">|</span>
           </h1>
@@ -78,16 +78,16 @@ const Home = () => {
             I build fast, scalable web applications — while pushing toward the future of robotics and intelligent systems.
           </p>
 
-          <div className="hero-reveal hero-delay-5 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="hero-reveal hero-delay-5 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Link
               to="/portfolio"
-              className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow magnetic-btn"
+              className="px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow btn-sheen magnetic-btn"
             >
               See My Work
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-3.5 rounded-lg border border-accent/40 text-accent font-body font-semibold text-sm btn-ghost-glow magnetic-btn"
+              className="px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg border border-accent/40 text-accent font-body font-semibold text-sm btn-ghost-glow btn-sheen magnetic-btn"
             >
               Contact Me
             </Link>

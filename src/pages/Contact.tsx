@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import AnimatedLetters from "../components/AnimatedLetters";
 
 // EmailJS placeholders — replace with your actual credentials
 const SERVICE_ID = "YOUR_SERVICE_ID";
@@ -24,19 +25,19 @@ const Contact = () => {
   };
 
   return (
-    <div className="page-enter pt-24 circuit-bg min-h-screen">
-      <section className="py-16 md:py-24 px-6">
+    <div className="page-enter pt-20 md:pt-24 circuit-bg min-h-screen">
+      <section className="py-12 md:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="reveal font-orbitron text-3xl md:text-5xl font-bold text-foreground mb-3">
-            Let's build something
+          <h1 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3">
+            <AnimatedLetters text="Let's build something" step={0.04} />
           </h1>
-          <p className="reveal font-body text-muted-foreground mb-16 text-base md:text-lg">
+          <p className="reveal-blur font-body text-muted-foreground mb-12 md:mb-16 text-sm sm:text-base md:text-lg">
             Have a project in mind? I'd love to hear about it.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-20">
             {/* Form */}
-            <form onSubmit={handleSubmit} className="reveal space-y-6">
+            <form onSubmit={handleSubmit} className="reveal-left space-y-5 md:space-y-6">
               <div>
                 <label className="font-body text-sm text-muted-foreground block mb-2">Name</label>
                 <input
@@ -73,7 +74,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={sending}
-                className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow disabled:opacity-50"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm btn-glow btn-sheen magnetic-btn disabled:opacity-50"
               >
                 {sending ? "Sending..." : "Send Message"}
               </button>
