@@ -4,10 +4,10 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
 
 // ─── EmailJS Credentials ───────────────────────────────────────────────────
-const SERVICE_ID = "zion-robotics";          // 👈 Replace this
-const ADMIN_TEMPLATE_ID = "template_hyh4hbx";   // 👈 Replace this (notifies you)
-const AUTOREPLY_TEMPLATE_ID = "template_zvyrlen"; // 👈 Replace this (confirms to customer)
-const PUBLIC_KEY = "ZZhQ1Xgm8U6UCMq7L";          // 👈 Replace this
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;          // 👈 Replace this
+const ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE;   // 👈 Replace this (notifies you)
+const AUTOREPLY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE; // 👈 Replace this (confirms to customer)
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;          // 👈 Replace this
 // ──────────────────────────────────────────────────────────────────────────
 
 const Contact = () => {
