@@ -203,11 +203,32 @@
 
 /* Page transition */
 @keyframes pageIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(12px) scale(0.995); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 .page-enter {
-  animation: pageIn 0.4s ease-out forwards;
+  animation: pageIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Floating glow orb */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.float-y { animation: floatY 6s ease-in-out infinite; }
+
+/* Shimmer sweep */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 50%, hsl(var(--foreground)) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
 }
 
 /* Glowing underline */

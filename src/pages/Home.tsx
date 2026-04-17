@@ -26,13 +26,17 @@ const Home = () => {
         <ParticleCanvas />
         {/* Video bg */}
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-10"
-          src="https://cdn.pixabay.com/video/2020/07/30/45568-445009018_large.mp4"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
           autoPlay
           muted
           loop
           playsInline
-        />
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=60"
+        >
+          <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          <source src="https://cdn.coverr.co/videos/coverr-a-network-of-stars-2633/1080p.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
