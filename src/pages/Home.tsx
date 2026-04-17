@@ -3,10 +3,21 @@ import ParticleCanvas from "../components/ParticleCanvas";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { projects } from "../data/projectsData";
 
+interface Project {
+  id: number;
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+  tags: string[];
+  liveUrl: string;
+  status: string;
+  featured: boolean;
+}
+
 const Home = () => {
   useScrollReveal();
 
-  const featured = projects.filter((p: any) => p.featured);
+  const featured = projects.filter((p: Project) => p.featured);
 
   return (
     <div className="page-enter">
@@ -94,8 +105,8 @@ const Home = () => {
             Featured Work
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {featured.map((p: any, i: number) => (
-              <div key={p.id} className={`reveal glass-card rounded-2xl p-6 flex flex-col`} style={{ transitionDelay: `${i * 0.1}s` }}>
+            {featured.map((p: Project, i: number) => (
+              <div key={p.id} className={`reveal glass-card rounded-2xl p-6 flex flex-col reveal-delay-${i}`}>
                 <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mb-4 flex-1">{p.fullDescription}</p>
                 <div className="flex flex-wrap gap-2 mb-4">

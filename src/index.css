@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 @layer base {
   :root {
@@ -35,6 +37,7 @@
   }
 }
 
+/* stylelint-disable at-rule-no-unknown */
 @layer base {
   * {
     @apply border-border;
@@ -47,6 +50,7 @@
     font-family: 'Orbitron', sans-serif;
   }
 }
+/* stylelint-enable at-rule-no-unknown */
 
 /* Noise overlay */
 .noise-overlay {
@@ -71,8 +75,8 @@
 /* Glass card */
 .glass-card {
   background: hsla(220, 50%, 10%, 0.6);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid hsla(191, 100%, 50%, 0.1);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s, box-shadow 0.4s;
 }
@@ -254,8 +258,8 @@
 
 /* Frosted nav */
 .nav-frosted {
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   background: hsla(220, 60%, 7%, 0.8);
   border-bottom: 1px solid hsla(191, 100%, 50%, 0.1);
 }

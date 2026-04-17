@@ -23,7 +23,6 @@ const Portfolio = () => {
               <div
                 key={p.id}
                 className="reveal glass-card rounded-2xl p-6 flex flex-col cursor-pointer"
-                style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mb-4 flex-1">{p.shortDescription}</p>
