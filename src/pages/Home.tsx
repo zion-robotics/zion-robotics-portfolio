@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ParticleCanvas from "../components/ParticleCanvas";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -20,6 +20,7 @@ const FULL_NAME = "Adeogun Daniel Joseph";
 const Home = () => {
   useScrollReveal();
   const [typed, setTyped] = useState("");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let i = 0;
@@ -33,6 +34,11 @@ const Home = () => {
     return () => clearTimeout(startDelay);
   }, []);
 
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({ left: dir === "right" ? 360 : -360, behavior: "smooth" });
+  };
+
   const featured = projects.filter((p: Project) => p.featured);
 
   return (
@@ -40,7 +46,6 @@ const Home = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden circuit-bg">
         <ParticleCanvas />
-        {/* Video bg — much more visible */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           autoPlay
@@ -56,7 +61,6 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_90%)]" />
 
-        {/* Animated orbs */}
         <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-primary/25 blur-3xl float-y" />
         <div className="absolute bottom-1/4 -right-20 w-[28rem] h-[28rem] rounded-full bg-accent/20 blur-3xl float-y orb-delay" />
 
@@ -94,7 +98,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
           <svg className="w-6 h-6 text-accent/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7" />
@@ -124,37 +127,64 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Featured Projects Carousel */}
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 aurora-bg opacity-40" />
         <div className="max-w-7xl mx-auto relative z-10">
           <h2 className="reveal-blur font-orbitron text-2xl md:text-4xl font-bold text-foreground mb-12 text-center">
             Featured <span className="shimmer-text">Work</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {featured.map((p: Project, i: number) => (
-              <div key={p.id} className={`reveal-blur reveal-delay-${i} glass-card tilt-card rounded-2xl p-6 flex flex-col`}>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="font-orbitron text-xs text-accent/60">0{i + 1}</span>
-                  <span className="text-[10px] uppercase tracking-widest font-body text-accent/70 px-2 py-0.5 border border-accent/30 rounded-full">{p.status}</span>
-                </div>
-                <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
-                <p className="font-body text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{p.fullDescription}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.tags.map((t: string) => (
-                    <span key={t} className="text-xs font-body text-accent/80 bg-accent/5 px-2 py-0.5 rounded-full">{t}</span>
-                  ))}
-                </div>
-                <a
-                  href={p.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body text-sm text-accent hover:text-foreground transition-colors group"
+
+          <div className="relative">
+            {/* Left arrow */}
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-accent/10 border border-accent/30 text-accent text-xl flex items-center justify-center hover:bg-accent/20 transition-colors"
+            >
+              ‹
+            </button>
+
+            {/* Scrollable track */}
+            <div
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto pb-4"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {featured.map((p: Project, i: number) => (
+                <div
+                  key={p.id}
+                  className={`reveal-blur reveal-delay-${i} glass-card tilt-card rounded-2xl p-6 flex flex-col flex-shrink-0 w-[300px] md:w-[360px]`}
                 >
-                  View Project <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            ))}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-orbitron text-xs text-accent/60">0{i + 1}</span>
+                    <span className="text-[10px] uppercase tracking-widest font-body text-accent/70 px-2 py-0.5 border border-accent/30 rounded-full">{p.status}</span>
+                  </div>
+                  <h3 className="font-orbitron text-lg font-bold text-foreground mb-2">{p.title}</h3>
+                  <p className="font-body text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{p.fullDescription}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {p.tags.map((t: string) => (
+                      <span key={t} className="text-xs font-body text-accent/80 bg-accent/5 px-2 py-0.5 rounded-full">{t}</span>
+                    ))}
+                  </div>
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body text-sm text-accent hover:text-foreground transition-colors group"
+                  >
+                    View Project <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-accent/10 border border-accent/30 text-accent text-xl flex items-center justify-center hover:bg-accent/20 transition-colors"
+            >
+              ›
+            </button>
           </div>
         </div>
       </section>
