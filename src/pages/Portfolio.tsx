@@ -36,9 +36,7 @@ const Portfolio = () => {
             Projects I've built for real clients and real users.
           </p>
 
-          {/* Carousel wrapper */}
           <div className="relative">
-            {/* Left arrow */}
             <button
               onClick={() => scroll("left")}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-accent/10 border border-accent/30 text-accent flex items-center justify-center hover:bg-accent/20 transition-colors"
@@ -46,7 +44,6 @@ const Portfolio = () => {
               ‹
             </button>
 
-            {/* Scrollable track */}
             <div
               ref={scrollRef}
               className="flex gap-5 overflow-x-auto scroll-smooth pb-4"
@@ -85,7 +82,6 @@ const Portfolio = () => {
               ))}
             </div>
 
-            {/* Right arrow */}
             <button
               onClick={() => scroll("right")}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-accent/10 border border-accent/30 text-accent flex items-center justify-center hover:bg-accent/20 transition-colors"
