@@ -28,5 +28,15 @@ export const projects = [
     liveUrl: "https://www.1stbioresonanceistofafrica.com/",
     status: "live",
     featured: true
+  },
+  {
+    id: 4,
+    title: "SentryAI",
+    shortDescription: "AI-powered omnichannel business inbox for African SMEs",
+    fullDescription: "An AI-powered omnichannel business inbox built for African SMEs — unifying WhatsApp, Telegram, and email into one smart dashboard. Groq-powered AI responds to customers in Nigerian Pidgin and English. Built for the Qwen Cloud Global AI Hackathon 2026.",
+    tags: ["AI", "Node.js", "Supabase", "React", "TypeScript", "Groq"],
+    liveUrl: "https://github.com/zion-robotics/sentryai",
+    status: "in development",
+    featured: true
   }
 ];
