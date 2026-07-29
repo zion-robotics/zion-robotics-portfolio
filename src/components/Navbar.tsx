@@ -11,9 +11,9 @@ const navLinks = [
 ];
 
 const themes: { value: Theme; label: string; icon: string }[] = [
-  { value: "light", label: "Light", icon: "☀️" },
-  { value: "dark",  label: "Dark",  icon: "🌙" },
-  { value: "blue",  label: "Blue",  icon: "🌊" },
+  { value: "light", label: "Light" },
+  { value: "dark",  label: "Dark"  },
+  { value: "blue",  label: "Blue"  },
 ];
 
 const Navbar = () => {
