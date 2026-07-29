@@ -21,7 +21,7 @@ const ROLES = ["Web Developer", "Robotics Enthusiast", "AI Builder", "SaaS Found
 const stats = [
   { value: "6+", label: "Projects shipped" },
   { value: "2", label: "Universities" },
-  { value: "3", label: "Hackathons" },
+  { value: "5", label: "Hackathons" },
   { value: "1+", label: "Years building" },
 ];
 
