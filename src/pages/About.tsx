@@ -1,5 +1,6 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
+import zionLogo from "@/assets/zion-logo.png";
 
 const skillCategories = [
   {
@@ -24,7 +25,7 @@ const stats = [
   { value: "8+", label: "Projects shipped" },
   { value: "5", label: "Hackathons" },
   { value: "2", label: "Co-founded SaaS" },
-  { value: "2+", label: "Years building" },
+  { value: "1+", label: "Years building" },
 ];
 
 const timeline = [
@@ -72,7 +73,7 @@ const About = () => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/5 blur-2xl" />
               <div className="relative w-60 h-72 sm:w-72 sm:h-88 md:w-80 md:h-96 rounded-2xl border border-accent/20 glow-frame overflow-hidden bg-card">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                  src={zionLogo}
                   alt="Adeogun Daniel Joseph"
                   className="w-full h-full object-cover"
                 />
