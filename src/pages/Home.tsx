@@ -21,7 +21,7 @@ const stats = [
   { value: "6+", label: "Projects shipped" },
   { value: "2", label: "Universities" },
   { value: "3", label: "Hackathons" },
-  { value: "2+", label: "Years building" },
+  { value: "1+", label: "Years building" },
 ];
 
 const Home = () => {
@@ -166,7 +166,7 @@ const Home = () => {
               Building the digital future
             </h2>
             <p className="font-body text-muted-foreground leading-relaxed text-base md:text-lg mb-4">
-              I'm Daniel — a Year 2 Mechatronics Engineering student at FUNAAB, also studying at the University of the People. I build fast, scalable products under my brand Zion Robotics.
+              I'm Daniel Adeogun — a Year 2 Mechatronics Engineering student at FUNAAB, also studying at the University of the People. I build fast, scalable products under my brand Zion Robotics.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed text-sm">
               From AI-powered platforms like Ingenium to hackathon projects like SentryAI, I focus on shipping things that actually work — for African builders and beyond.
