@@ -125,7 +125,7 @@ const Home = () => {
                 {/* Portrait frame */}
                 <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden glow-frame border-2 border-accent/30">
                   <img
-                    src={zionlogo}
+                    src={zionLogo}
                     alt="Daniel — Zion Robotics"
                     className="w-full h-full object-cover"
                   />
