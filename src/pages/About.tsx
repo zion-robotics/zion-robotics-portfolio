@@ -1,6 +1,7 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
-import zionLogo from "@/assets/zion-logo.png";
+import zionpics from "@/assets/zion-pic7.png";
+
 
 const skillCategories = [
   {
@@ -73,7 +74,7 @@ const About = () => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/5 blur-2xl" />
               <div className="relative w-60 h-72 sm:w-72 sm:h-88 md:w-80 md:h-96 rounded-2xl border border-accent/20 glow-frame overflow-hidden bg-card">
                 <img
-                  src={zionLogo}
+                  src={zionpics}
                   alt="Adeogun Daniel Joseph"
                   className="w-full h-full object-cover"
                 />
