@@ -75,7 +75,7 @@ const Home = () => {
             {/* Left — text */}
             <div>
               <p className="hero-reveal hero-delay-1 font-exo text-xs tracking-[0.35em] uppercase text-accent mb-5">
-                Zion Robotics
+                Daniel Adeogun
               </p>
 
               <h1 className="hero-reveal hero-delay-2 font-orbitron text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-foreground mb-4">
