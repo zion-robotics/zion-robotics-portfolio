@@ -37,15 +37,22 @@ const timeline = [
       "Built StudyPal — offline-first AI study companion (YPIT Hackathon 2026)",
       "Built EcoConnect — AI economic platform across 10 African countries (Squad Hackathon 3.0)",
       "Built SwarmDesk — AI support dashboard with blockchain agent memory (MemForks Bounty)",
+      "Co-founded Ingenium AI — AI engineering platform for African students",
+      "Shipped LitePress — browser-based file utility (open source)",
+      "Built client ecommerce site for Bioresonance Africa, Lagos",
+      
     ],
   },
   {
     year: "2025",
     items: [
-      "Co-founded Ingenium AI — AI engineering platform for African students",
-      "Shipped PageMind Chrome Extension — AI webpage summarizer",
-      "Shipped LitePress — browser-based file utility (open source)",
-      "Built client ecommerce site for Bioresonance Africa, Lagos",
+      
+      "Started my software development journey",
+      "Built my first landing pages using HTML, CSS, and JavaScript",
+      "Learned SEO, digital marketing, and website optimization",
+      "Began using Git and GitHub for version control",
+      "Laid the foundation for my journey as a developer",
+      
     ],
   },
   {
