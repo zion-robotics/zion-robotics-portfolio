@@ -88,7 +88,7 @@ export const projects = [
     title: "Bioresonance Africa",
     shortDescription: "Ecommerce & clinic site for a Lagos health clinic",
     fullDescription: "Full ecommerce platform for a bioresonance therapy clinic in Lagos — product listings, Paystack payment integration, Sanity CMS blog, branded email, and appointment/contact system.",
-    tags: ["React", "Paystack", "Sanity CMS", "Ecommerce"],
+    tags: ["React", "Sanity CMS", "Ecommerce"],
     liveUrl: "https://www.1stbioresonanceistofafrica.com/",
     githubUrl: null,
     status: "live",
