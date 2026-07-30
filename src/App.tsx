@@ -10,6 +10,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
+import PortfolioDev from "./pages/PortfolioDev";
+import PortfolioRobotics from "./pages/PortfolioRobotics";
+import PortfolioPersonal from "./pages/PortfolioPersonal";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./hooks/useTheme";
@@ -32,6 +35,9 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/dev" element={<PortfolioDev />} />
+            <Route path="/portfolio/robotics" element={<PortfolioRobotics />} />
+            <Route path="/portfolio/personal" element={<PortfolioPersonal />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
