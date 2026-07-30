@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ParticleCanvas from "../components/ParticleCanvas";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { projects } from "../data/projectsData";
+import zionLogo from "@/assets/zion-logo.png";
 import WhoAmI from "../components/WhoAmI";
 
 interface Project {
@@ -124,7 +125,7 @@ const Home = () => {
                 {/* Portrait frame */}
                 <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden glow-frame border-2 border-accent/30">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                    src={zion-logo}
                     alt="Daniel — Zion Robotics"
                     className="w-full h-full object-cover"
                   />
