@@ -202,7 +202,3 @@ const WhoAmI = () => {
 };
 
 export default WhoAmI;
-
-
-
-You are out of free messages until 6:40 PM
