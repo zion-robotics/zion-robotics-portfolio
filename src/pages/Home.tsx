@@ -20,10 +20,10 @@ interface Project {
 const ROLES = ["Web Developer", "Robotics Enthusiast", "AI Builder", "SaaS Founder"];
 
 const stats = [
-  { value: "6+", label: "Projects shipped" },
-  { value: "2", label: "Universities" },
+  { value: "9+", label: "Projects shipped" },
+  { value: "Top 3", label: "Inter-Varsity Competition" },
   { value: "5", label: "Hackathons" },
-  { value: "1+", label: "Years building" },
+  { value: "2", label: "Universities" },
 ];
 
 const Home = () => {
