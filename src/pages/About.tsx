@@ -1,8 +1,10 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useState } from "react";
 import AnimatedLetters from "../components/AnimatedLetters";
 import zionpics from "@/assets/zion-pic7.png";
 import badgeCchub from "@/assets/badge-cchub.png";
 import badgeHng from "@/assets/badge-hng.jpeg";
+import BadgeLightbox from "../components/BadgeLightbox";
 
 
 const skillCategories = [
@@ -67,6 +69,7 @@ const timeline = [
 
 const About = () => {
   useScrollReveal();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <div className="page-enter pt-20 md:pt-24 min-h-screen">
@@ -184,8 +187,14 @@ const About = () => {
               <p className="font-body text-xs text-muted-foreground leading-relaxed">
                 Selected for the CcHUB Gateway Program, a Mastercard Foundation initiative. Taking UI/UX Design skills to the next level. Nigeria cohort.
               </p>
-              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-32">
-                <img src={badgeCchub} alt="CcHUB Gateway Badge" className="w-full h-full object-contain p-2" />
+              <div
+                className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-56 cursor-zoom-in group relative"
+                onClick={() => setLightbox({ src: badgeCchub, alt: "CcHUB Gateway Badge" })}
+              >
+                <img src={badgeCchub} alt="CcHUB Gateway Badge" className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="bg-background/80 backdrop-blur-sm text-foreground font-body text-xs px-3 py-1.5 rounded-full border border-border">Click to view</span>
+                </div>
               </div>
               <a href="https://gateway.cchub.africa" target="_blank" rel="noopener noreferrer"
                 className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1">
@@ -205,8 +214,14 @@ const About = () => {
               <p className="font-body text-xs text-muted-foreground leading-relaxed">
                 Participated in the HNG Internship on the Frontend track. Made it to week 5 before the program required payment to continue. Solid exposure to fast-paced collaborative dev work.
               </p>
-              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-32">
-                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-2" />
+              <div
+                className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-56 cursor-zoom-in group relative"
+                onClick={() => setLightbox({ src: badgeHng, alt: "HNG Internship Badge" })}
+              >
+                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="bg-background/80 backdrop-blur-sm text-foreground font-body text-xs px-3 py-1.5 rounded-full border border-border">Click to view</span>
+                </div>
               </div>
               <a href="https://hng.tech" target="_blank" rel="noopener noreferrer"
                 className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1">
@@ -278,6 +293,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {lightbox && <BadgeLightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />}
 
     </div>
   );
