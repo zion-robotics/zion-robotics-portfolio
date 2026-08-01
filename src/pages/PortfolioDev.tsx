@@ -16,6 +16,7 @@ interface Project {
   status: string;
   category: string;
   featured: boolean;
+  achievement?: string;
 }
 
 const CATEGORIES = ["All", "SaaS", "Hackathon", "Tool", "Client Work"];
@@ -90,6 +91,11 @@ const PortfolioDev = () => {
                     </span>
                   </div>
                 </div>
+                {p.achievement && (
+                  <div className="flex items-center gap-2 mb-3 px-3 py-2 rounded-lg bg-yellow-400/5 border border-yellow-400/20">
+                    <span className="font-body text-[11px] text-yellow-400 leading-snug">{p.achievement}</span>
+                  </div>
+                )}
                 <h3 className="font-orbitron text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{p.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{p.shortDescription}</p>
                 <div className="flex flex-wrap gap-1.5 mb-5">
