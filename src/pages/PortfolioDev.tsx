@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import badgeCchub from "@/assets/badge-cchub.png";
+import badgeHng from "@/assets/badge-hng.jpeg";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { projects } from "../data/projectsData";
 import ProjectModal from "../components/ProjectModal";
@@ -122,6 +124,64 @@ const PortfolioDev = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Badges ─────────────────────────────────────── */}
+      <section className="py-16 px-4 sm:px-6 circuit-bg">
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-blur mb-10">
+            <p className="font-exo text-xs tracking-[0.3em] uppercase text-primary mb-2">External recognition</p>
+            <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-foreground">Dev Badges</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div className="reveal-blur reveal-delay-0 glass-card rounded-2xl overflow-hidden flex flex-col">
+              <div className="h-48 bg-muted/20 overflow-hidden">
+                <img src={badgeCchub} alt="CcHUB Gateway Program Badge" className="w-full h-full object-contain p-4" />
+              </div>
+              <div className="p-5 flex flex-col gap-2 flex-1">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="font-orbitron text-sm font-bold text-foreground">Gateway Program</p>
+                    <p className="font-body text-xs text-primary mt-0.5">CcHUB x Mastercard Foundation</p>
+                  </div>
+                  <span className="text-[10px] font-body px-2 py-0.5 rounded-full border text-green-400 border-green-400/30 bg-green-400/5 flex-shrink-0">Active</span>
+                </div>
+                <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                  Selected for the CcHUB Gateway Program. Taking UI/UX Design to the next level. Nigeria cohort.
+                </p>
+                <a href="https://gateway.cchub.africa" target="_blank" rel="noopener noreferrer"
+                  className="mt-auto font-body text-xs text-primary hover:text-foreground transition-colors flex items-center gap-1">
+                  gateway.cchub.africa →
+                </a>
+              </div>
+            </div>
+
+            <div className="reveal-blur reveal-delay-1 glass-card rounded-2xl overflow-hidden flex flex-col">
+              <div className="h-48 bg-muted/20 overflow-hidden">
+                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-4" />
+              </div>
+              <div className="p-5 flex flex-col gap-2 flex-1">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="font-orbitron text-sm font-bold text-foreground">HNG Internship</p>
+                    <p className="font-body text-xs text-primary mt-0.5">Frontend Track</p>
+                  </div>
+                  <span className="text-[10px] font-body px-2 py-0.5 rounded-full border text-muted-foreground border-border flex-shrink-0">Week 5</span>
+                </div>
+                <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                  Participated in the HNG Internship on the Frontend track. Made it to week 5 before the program required payment to continue. Solid exposure to fast-paced collaborative dev work.
+                </p>
+                <a href="https://hng.tech" target="_blank" rel="noopener noreferrer"
+                  className="mt-auto font-body text-xs text-primary hover:text-foreground transition-colors flex items-center gap-1">
+                  hng.tech →
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
