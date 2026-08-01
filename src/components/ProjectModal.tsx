@@ -4,6 +4,7 @@ interface Project {
   fullDescription: string;
   tags: string[];
   liveUrl: string;
+  achievement?: string;
 }
 
 interface Props {
@@ -28,6 +29,11 @@ const ProjectModal = ({ project, onClose }: Props) => {
           ×
         </button>
 
+        {project.achievement && (
+          <div className="flex items-center gap-2 mb-5 px-4 py-2.5 rounded-xl bg-yellow-400/5 border border-yellow-400/20">
+            <span className="font-body text-sm text-yellow-400">{project.achievement}</span>
+          </div>
+        )}
         <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-4 text-foreground">{project.title}</h2>
         <p className="font-body text-muted-foreground leading-relaxed mb-6">{project.fullDescription}</p>
 
