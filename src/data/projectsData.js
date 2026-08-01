@@ -10,6 +10,7 @@ export const projects = [
     status: "live",
     category: "SaaS",
     featured: true,
+    achievement: "🏆 Top 3 · Mechatronics Inter-Varsity Competition · 9 universities",
   },
   {
     id: 2,
