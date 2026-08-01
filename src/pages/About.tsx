@@ -1,6 +1,8 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import AnimatedLetters from "../components/AnimatedLetters";
 import zionpics from "@/assets/zion-pic7.png";
+import badgeCchub from "@/assets/badge-cchub.png";
+import badgeHng from "@/assets/badge-hng.jpeg";
 
 
 const skillCategories = [
@@ -182,17 +184,11 @@ const About = () => {
               <p className="font-body text-xs text-muted-foreground leading-relaxed">
                 Selected for the CcHUB Gateway Program, a Mastercard Foundation initiative. Taking UI/UX Design skills to the next level. Nigeria cohort.
               </p>
-              {/* Replace src with your actual badge image path e.g. /src/assets/gateway-badge.png */}
-              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/30 flex items-center justify-center h-32 text-muted-foreground font-body text-xs">
-                {/* <img src="/assets/gateway-badge.png" alt="CcHUB Gateway Badge" className="w-full h-full object-contain p-2" /> */}
-                Badge image — upload to assets and uncomment img tag
+              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-32">
+                <img src={badgeCchub} alt="CcHUB Gateway Badge" className="w-full h-full object-contain p-2" />
               </div>
-              <a
-                href="https://gateway.cchub.africa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1"
-              >
+              <a href="https://gateway.cchub.africa" target="_blank" rel="noopener noreferrer"
+                className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1">
                 gateway.cchub.africa →
               </a>
             </div>
@@ -204,22 +200,16 @@ const About = () => {
                   <p className="font-orbitron text-sm font-bold text-foreground">HNG Internship</p>
                   <p className="font-body text-xs text-accent mt-0.5">Frontend Track</p>
                 </div>
-                <span className="text-[10px] font-body px-2 py-0.5 rounded-full border text-accent border-accent/30 bg-accent/5">Completed</span>
+                <span className="text-[10px] font-body px-2 py-0.5 rounded-full border text-muted-foreground border-border">Week 5</span>
               </div>
               <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                Completed the HNG Internship program on the Frontend track. One of Nigeria's most competitive tech internship programs, selected from thousands of applicants.
+                Participated in the HNG Internship on the Frontend track. Made it to week 5 before the program required payment to continue. Solid exposure to fast-paced collaborative dev work.
               </p>
-              {/* Replace src with your actual badge image path e.g. /src/assets/hng-badge.png */}
-              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/30 flex items-center justify-center h-32 text-muted-foreground font-body text-xs">
-                {/* <img src="/assets/hng-badge.png" alt="HNG Internship Badge" className="w-full h-full object-contain p-2" /> */}
-                Badge image — upload to assets and uncomment img tag
+              <div className="mt-auto rounded-xl overflow-hidden border border-border bg-muted/20 h-32">
+                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-2" />
               </div>
-              <a
-                href="https://hng.tech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1"
-              >
+              <a href="https://hng.tech" target="_blank" rel="noopener noreferrer"
+                className="font-body text-xs text-accent hover:text-foreground transition-colors flex items-center gap-1">
                 hng.tech →
               </a>
             </div>
