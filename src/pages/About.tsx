@@ -23,16 +23,17 @@ const skillCategories = [
 ];
 
 const stats = [
-  { value: "8+", label: "Projects shipped" },
+  { value: "9+", label: "Projects shipped" },
   { value: "5", label: "Hackathons" },
-  { value: "2", label: "Co-founded SaaS" },
-  { value: "1+", label: "Years building" },
+  { value: "Top 3", label: "Inter-Varsity Competition" },
+  { value: "2", label: "Universities" },
 ];
 
 const timeline = [
   {
     year: "2026",
     items: [
+      "Top 3 finish at the Mechatronics Inter-Varsity Competition among 9 universities in Nigeria (co-built with Nicholas Sobowale)",
       "Built SentryAI — AI omnichannel inbox for African SMEs (Qwen Hackathon 2026)",
       "Built StudyPal — offline-first AI study companion (YPIT Hackathon 2026)",
       "Built EcoConnect — AI economic platform across 10 African countries (Squad Hackathon 3.0)",
@@ -40,19 +41,16 @@ const timeline = [
       "Co-founded Ingenium AI — AI engineering platform for African students",
       "Shipped LitePress — browser-based file utility (open source)",
       "Built client ecommerce site for Bioresonance Africa, Lagos",
-      
     ],
   },
   {
     year: "2025",
     items: [
-      
       "Started my software development journey",
       "Built my first landing pages using HTML, CSS, and JavaScript",
       "Learned SEO, digital marketing, and website optimization",
       "Began using Git and GitHub for version control",
       "Laid the foundation for my journey as a developer",
-      
     ],
   },
   {
