@@ -5,6 +5,7 @@ import badgeHng from "@/assets/badge-hng.jpeg";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { projects } from "../data/projectsData";
 import ProjectModal from "../components/ProjectModal";
+import BadgeLightbox from "../components/BadgeLightbox";
 import AnimatedLetters from "../components/AnimatedLetters";
 
 interface Project {
@@ -33,6 +34,7 @@ const PortfolioDev = () => {
   useScrollReveal();
   const [selected, setSelected] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const filtered = activeCategory === "All"
     ? projects
@@ -139,8 +141,14 @@ const PortfolioDev = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <div className="reveal-blur reveal-delay-0 glass-card rounded-2xl overflow-hidden flex flex-col">
-              <div className="h-48 bg-muted/20 overflow-hidden">
-                <img src={badgeCchub} alt="CcHUB Gateway Program Badge" className="w-full h-full object-contain p-4" />
+              <div
+                className="h-72 bg-muted/20 overflow-hidden cursor-zoom-in group relative"
+                onClick={() => setLightbox({ src: badgeCchub, alt: "CcHUB Gateway Program Badge" })}
+              >
+                <img src={badgeCchub} alt="CcHUB Gateway Program Badge" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="bg-background/80 backdrop-blur-sm text-foreground font-body text-xs px-3 py-1.5 rounded-full border border-border">Click to view</span>
+                </div>
               </div>
               <div className="p-5 flex flex-col gap-2 flex-1">
                 <div className="flex items-start justify-between">
@@ -161,8 +169,14 @@ const PortfolioDev = () => {
             </div>
 
             <div className="reveal-blur reveal-delay-1 glass-card rounded-2xl overflow-hidden flex flex-col">
-              <div className="h-48 bg-muted/20 overflow-hidden">
-                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-4" />
+              <div
+                className="h-72 bg-muted/20 overflow-hidden cursor-zoom-in group relative"
+                onClick={() => setLightbox({ src: badgeHng, alt: "HNG Internship Badge" })}
+              >
+                <img src={badgeHng} alt="HNG Internship Badge" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="bg-background/80 backdrop-blur-sm text-foreground font-body text-xs px-3 py-1.5 rounded-full border border-border">Click to view</span>
+                </div>
               </div>
               <div className="p-5 flex flex-col gap-2 flex-1">
                 <div className="flex items-start justify-between">
@@ -187,6 +201,7 @@ const PortfolioDev = () => {
       </section>
 
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      {lightbox && <BadgeLightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />}
     </div>
   );
 };
