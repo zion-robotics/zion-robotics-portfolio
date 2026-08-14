@@ -103,40 +103,16 @@ const WhoAmI = () => {
             transition: "opacity 0.7s, transform 0.8s cubic-bezier(0.16,1,0.3,1)",
           }}
         >
-          {/* Glow layer behind */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            style={{ filter: "blur(24px)", opacity: 0.5 }}>
-            <span className="font-orbitron font-black uppercase text-primary"
-              style={{ fontSize: "clamp(3rem, 14vw, 7rem)", letterSpacing: "0.05em" }}>
-              Daniel
-            </span>
-          </div>
-
           {/* Main text */}
           <span
             className="relative font-orbitron font-black uppercase text-foreground"
             style={{
               fontSize: "clamp(3rem, 14vw, 7rem)",
               letterSpacing: "0.05em",
-              textShadow: "0 2px 0 hsl(var(--muted-foreground)/0.3), 0 4px 20px hsl(var(--primary)/0.4)",
             }}
           >
             Daniel
           </span>
-        </div>
-
-        {/* Platform — glowing line under the name */}
-        <div className="relative w-full flex justify-center mb-0"
-          style={{ opacity: step >= 1 ? 1 : 0, transition: "opacity 0.6s 0.5s" }}>
-          <div
-            className="h-px rounded-full"
-            style={{
-              width: step >= 1 ? "70%" : "0%",
-              background: "linear-gradient(90deg, transparent, #3B82F6, #A855F7, #22C55E, transparent)",
-              boxShadow: "0 0 12px rgba(168,85,247,0.6)",
-              transition: "width 0.8s ease 0.5s",
-            }}
-          />
         </div>
 
         {/* SVG connector tree */}
@@ -159,8 +135,7 @@ const WhoAmI = () => {
 
           {/* Vertical trunk */}
           <line x1="180" y1="0" x2="180" y2="55"
-            stroke="url(#trunkG)" strokeWidth="2.5" strokeLinecap="round"
-            filter="url(#glow)"
+            stroke="url(#trunkG)" strokeWidth="2" strokeLinecap="round"
             strokeDasharray="55"
             strokeDashoffset={step >= 2 ? "0" : "55"}
             style={{ transition: "stroke-dashoffset 0.5s ease" }}
@@ -168,8 +143,7 @@ const WhoAmI = () => {
 
           {/* Horizontal bar */}
           <line x1="40" y1="55" x2="320" y2="55"
-            stroke="url(#barG)" strokeWidth="2.5" strokeLinecap="round"
-            filter="url(#glow)"
+            stroke="url(#barG)" strokeWidth="2" strokeLinecap="round"
             strokeDasharray="280"
             strokeDashoffset={step >= 3 ? "0" : "280"}
             style={{ transition: "stroke-dashoffset 0.5s ease" }}
@@ -181,19 +155,16 @@ const WhoAmI = () => {
             return (
               <g key={b.label}>
                 <line x1={x} y1="55" x2={x} y2="120"
-                  stroke={b.color} strokeWidth="2.5" strokeLinecap="round"
-                  filter="url(#glow)"
+                  stroke={b.color} strokeWidth="2" strokeLinecap="round"
                   strokeDasharray="65"
                   strokeDashoffset={step >= 4 ? "0" : "65"}
                   style={{ transition: `stroke-dashoffset 0.4s ease ${i * 0.12}s` }}
                 />
-                <circle cx={x} cy="55" r="5" fill={b.color}
-                  filter="url(#glow)"
+                <circle cx={x} cy="55" r="4" fill={b.color}
                   opacity={step >= 3 ? 1 : 0}
                   style={{ transition: `opacity 0.3s ${0.4 + i * 0.05}s` }}
                 />
-                <circle cx={x} cy="120" r="5" fill={b.color}
-                  filter="url(#glow)"
+                <circle cx={x} cy="120" r="4" fill={b.color}
                   opacity={step >= 4 ? 1 : 0}
                   style={{ transition: `opacity 0.3s ${0.3 + i * 0.12}s` }}
                 />
@@ -214,21 +185,15 @@ const WhoAmI = () => {
               style={{
                 opacity: step >= 4 ? 1 : 0,
                 transform: step >= 4 ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ${i * 0.15}s, transform 0.5s ${i * 0.15}s, box-shadow 0.3s, border-color 0.3s`,
+                transition: `opacity 0.5s ${i * 0.15}s, transform 0.5s ${i * 0.15}s, background 0.3s, border-color 0.3s`,
                 background: hovered === b.label ? b.bg : "hsl(var(--card))",
                 borderColor: b.border,
-                boxShadow: hovered === b.label ? b.shadow : `0 0 10px ${b.bg}`,
               }}
             >
-              {/* Floor glow reflection */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-2/3 h-3 rounded-full blur-lg"
-                style={{ background: b.color, opacity: hovered === b.label ? 0.5 : 0.2, transition: "opacity 0.3s" }} />
-
               <div className="mb-2 transition-all duration-300"
                 style={{
                   color: b.color,
-                  filter: hovered === b.label ? `drop-shadow(0 0 10px ${b.color})` : "none",
-                  transform: hovered === b.label ? "scale(1.15)" : "scale(1)",
+                  transform: hovered === b.label ? "scale(1.1)" : "scale(1)",
                 }}>
                 {b.icon}
               </div>
