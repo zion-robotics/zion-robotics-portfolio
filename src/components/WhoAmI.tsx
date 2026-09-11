@@ -58,6 +58,8 @@ const WhoAmI = () => {
 
     if (reduceMotion) return;
 
+    const yard = section.querySelector<HTMLElement>(".container-yard");
+
     let frame = 0;
 
     const updateParallax = () => {
@@ -74,14 +76,18 @@ const WhoAmI = () => {
 
         section.style.setProperty("--section-parallax", `${progress * 24}px`);
 
-        // Scroll-driven assembly: side containers dock as this section enters view.
-        const start = window.innerHeight * 0.95;
-        const end = window.innerHeight * 0.35;
+        // Drive the animation from the card row's viewport position.
+        const yardTop = (yard ?? section).getBoundingClientRect().top;
+        const start = window.innerHeight * 0.98;
+        const end = window.innerHeight * 0.42;
+
         const assembly = Math.max(
           0,
-          Math.min(1, (start - rect.top) / (start - end)),
+          Math.min(1, (start - yardTop) / (start - end)),
         );
-        const eased = 1 - Math.pow(1 - assembly, 3);
+
+        // Smooth acceleration and deceleration in both scroll directions.
+        const eased = assembly * assembly * (3 - 2 * assembly);
 
         section.style.setProperty("--assembly", eased.toFixed(4));
       });
