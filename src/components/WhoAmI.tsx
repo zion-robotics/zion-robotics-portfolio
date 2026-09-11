@@ -73,6 +73,17 @@ const WhoAmI = () => {
         );
 
         section.style.setProperty("--section-parallax", `${progress * 24}px`);
+
+        // Scroll-driven assembly: side containers dock as this section enters view.
+        const start = window.innerHeight * 0.95;
+        const end = window.innerHeight * 0.35;
+        const assembly = Math.max(
+          0,
+          Math.min(1, (start - rect.top) / (start - end)),
+        );
+        const eased = 1 - Math.pow(1 - assembly, 3);
+
+        section.style.setProperty("--assembly", eased.toFixed(4));
       });
     };
 
@@ -120,6 +131,7 @@ const WhoAmI = () => {
             <div
               key={branch.path}
               className="container-position"
+              data-side={index === 0 ? "left" : index === 2 ? "right" : "middle"}
               style={
                 {
                   "--parallax-y": `${index === 1 ? -10 : index * 7}px`,
