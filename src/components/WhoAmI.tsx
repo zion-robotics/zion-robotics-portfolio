@@ -68,10 +68,10 @@ const WhoAmI = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           // Stagger steps
-          setTimeout(() => setStep(1), 100);   // name appears
-          setTimeout(() => setStep(2), 700);   // trunk draws
-          setTimeout(() => setStep(3), 1200);  // bar draws
-          setTimeout(() => setStep(4), 1700);  // drops + cards
+          setTimeout(() => setStep(1), 0);     // name appears
+          setTimeout(() => setStep(2), 150);   // trunk draws
+          setTimeout(() => setStep(3), 300);   // bar draws
+          setTimeout(() => setStep(4), 450);   // drops + cards
         }
       },
       { threshold: 0.2 }

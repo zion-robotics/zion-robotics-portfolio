@@ -3,42 +3,121 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineMcp } from "npm:@lovable.dev/mcp-js@0.20.1";
 
 // src/lib/mcp/tools/list-projects.ts
-import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.1";
 
 // src/data/projectsData.js
 var projects = [
   {
     id: 1,
-    title: "Litepress",
-    shortDescription: "A browser-based file utility for converting and compressing files",
-    fullDescription: "A web-based file utility tool that lets users convert images to PDF, PDF to Word, Word to PDF, and compress images \u2014 all in the browser. Built solo as a practical SaaS tool.",
-    tags: ["React", "File Conversion", "SaaS"],
-    liveUrl: "https://litepress.tech",
+    title: "Ingenium AI",
+    shortDescription: "AI engineering ecosystem for African students",
+    fullDescription: "A comprehensive AI engineering platform featuring a problem solver covering 15 disciplines with image input, 100+ calculators from beginner to PhD level with AI explanations, a project generator with Naira-based budgets, and an expert community. Co-founded with St. Nicholas Sobowale.",
+    tags: ["React", "Supabase", "AI", "SaaS", "TypeScript"],
+    liveUrl: "https://ingeniumai.tech",
+    githubUrl: "https://github.com/zion-robotics",
     status: "live",
-    featured: true
+    category: "SaaS",
+    featured: true,
+    achievement: "\u{1F3C6} Top 3 \xB7 Mechatronics Inter-Varsity Competition \xB7 9 universities"
   },
   {
     id: 2,
-    title: "Ingenium AI",
-    shortDescription: "An AI-powered engineering intelligence platform for the developing world",
-    fullDescription: "A comprehensive engineering platform featuring an AI problem solver, 100+ engineering calculators across every discipline, a smart project generator with local Nigerian supplier links, a component marketplace, and an expert community. Built to give engineers in Africa access to the tools and knowledge they deserve. Co-founded and built with St. Nicholas Sobowale.",
-    tags: ["AI", "SaaS", "Engineering", "React"],
-    liveUrl: "https://ingeniumai.tech",
-    status: "live",
+    title: "SentryAI",
+    shortDescription: "AI omnichannel business inbox for African SMEs",
+    fullDescription: "AI-powered omnichannel business inbox unifying WhatsApp, email, and social into one smart dashboard. Groq-powered AI responds in Nigerian Pidgin and English. Backend on Alibaba Cloud, frontend on Vercel. Built for the Qwen Cloud Global AI Hackathon 2026.",
+    tags: ["React", "TypeScript", "Node.js", "Supabase", "Groq", "Alibaba Cloud"],
+    liveUrl: "https://sentryai.vercel.app/",
+    githubUrl: "https://github.com/zion-robotics/sentryai",
+    status: "Version 1 shipped",
+    category: "Hackathon",
     featured: true
   },
   {
     id: 3,
-    title: "Bioresonance Nigeria",
-    shortDescription: "Full ecommerce website for a Lagos-based bioresonance health clinic",
-    fullDescription: "A complete ecommerce platform for a bioresonance therapy clinic in Lagos \u2014 featuring product listings, Paystack payment integration, a Sanity CMS-powered blog, branded email, and a full appointment/contact system.",
-    tags: ["Ecommerce", "Paystack", "Sanity CMS", "React"],
-    liveUrl: "https://www.1stbioresonanceistofafrica.com/",
+    title: "StudyPal",
+    shortDescription: "Offline-first AI study companion for working students",
+    fullDescription: "AI reads uploaded notes aloud in 10\u201315 minute sessions then runs comprehension checks. Offline-first PWA that works without internet after first load and syncs automatically. Daily Pulse shows real study coverage, streaks, and performance \u2014 no motivational filler. Built for YPIT Hackathon 2026.",
+    tags: ["React", "PWA", "AI", "TypeScript", "Groq"],
+    liveUrl: "https://studypal-your-ai-study-companion.vercel.app/",
+    githubUrl: "https://github.com/zion-robotics/studypal-your-ai-study-companion",
     status: "live",
+    category: "Hackathon",
     featured: true
+  },
+  {
+    id: 4,
+    title: "EcoConnect",
+    shortDescription: "AI economic platform across 10 African countries",
+    fullDescription: "AI platform connecting informal traders and job seekers across Africa. Job matching via OpenRouter/Groq returns top 3 matches with scores. Squad API handles payments without a bank account. Covers 10 African countries, 7 languages, builds trust scores from payment behaviour. Built for Squad Hackathon 3.0.",
+    tags: ["React", "OpenRouter", "Groq", "Node.js", "AI"],
+    liveUrl: "https://ecoconnect-intelligent-economy.vercel.app/",
+    githubUrl: "https://github.com/zion-robotics/ecoconnect-intelligent-economy",
+    status: "live",
+    category: "Hackathon",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "SwarmDesk",
+    shortDescription: "AI support dashboard with blockchain agent memory",
+    fullDescription: "AI customer support dashboard where each agent runs on an isolated memory branch on the Sui blockchain via MemForks. High-confidence resolutions merge into company-wide memory instantly. Real-time streaming chat, light/dark mode, onboarding tour. Built for MemForks Bounty Event.",
+    tags: ["React", "TypeScript", "Sui Blockchain", "MemForks", "AI"],
+    liveUrl: "https://memforks-liard.vercel.app/",
+    githubUrl: "https://github.com/zion-robotics/memforks/tree/main/apps/swarmdesk",
+    status: "live",
+    category: "Hackathon",
+    featured: false
+  },
+  {
+    id: 6,
+    title: "PageMind",
+    shortDescription: "Chrome extension that summarizes any webpage with AI",
+    fullDescription: "AI webpage summarizer Chrome extension (MV3) delivering bullet points, key insights, and reading time. Uses density scoring to pull readable text while filtering navbars, ads, and footers. Caches summaries per URL for 30 minutes. Groq API calls go through the background service worker so the key never touches the content script.",
+    tags: ["Chrome Extension", "MV3", "Groq", "JavaScript", "AI"],
+    liveUrl: "https://github.com/zion-robotics/AI-page-summarizer-Chrome-extension",
+    githubUrl: "https://github.com/zion-robotics/AI-page-summarizer-Chrome-extension",
+    status: "live",
+    category: "Tool",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "LitePress",
+    shortDescription: "Browser-based file utility \u2014 compression & PDF conversion",
+    fullDescription: "Runs entirely in the browser with no server uploads. Supports image compression, image-to-PDF, PDF-to-Word, and Word-to-PDF. Drag-to-reorder for unlimited images. Built with React, TypeScript, Vite, and Tailwind CSS. Open source.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Open Source"],
+    liveUrl: "https://litepress.tech",
+    githubUrl: "https://github.com/zion-robotics/litepress-spark",
+    status: "live",
+    category: "Tool",
+    featured: true
+  },
+  {
+    id: 8,
+    title: "Bioresonance Africa",
+    shortDescription: "Ecommerce & clinic site for a Lagos health clinic",
+    fullDescription: "Full ecommerce platform for a bioresonance therapy clinic in Lagos \u2014 product listings, Paystack payment integration, Sanity CMS blog, branded email, and appointment/contact system.",
+    tags: ["React", "Sanity CMS", "Ecommerce"],
+    liveUrl: "https://www.1stbioresonanceistofafrica.com/",
+    githubUrl: null,
+    status: "live",
+    category: "Client Work",
+    featured: false
+  },
+  {
+    id: 9,
+    title: "Habit Tracker PWA",
+    shortDescription: "Mobile-first PWA for daily habit tracking",
+    fullDescription: "Full auth flow with per-user habit isolation and offline app shell via service worker. 80% test coverage across unit, integration, and end-to-end Playwright test suites.",
+    tags: ["React", "PWA", "Playwright", "TypeScript"],
+    liveUrl: "https://habit-tracker-lilac-theta.vercel.app/",
+    githubUrl: "https://github.com/zion-robotics/habit-tracker",
+    status: "live",
+    category: "Tool",
+    featured: false
   }
 ];
 
@@ -56,7 +135,7 @@ var list_projects_default = defineTool({
 });
 
 // src/lib/mcp/tools/get-project.ts
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.1";
 import { z } from "npm:zod@^4.4.3";
 var get_project_default = defineTool2({
   name: "get_project",
@@ -80,7 +159,7 @@ var get_project_default = defineTool2({
 });
 
 // src/lib/mcp/tools/get-contact.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.1";
 var get_contact_default = defineTool3({
   name: "get_contact_info",
   title: "Get contact info",
@@ -111,5 +190,5 @@ var mcp_default = defineMcp({
 });
 
 // lovable-mcp-supabase-entry.ts
-import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.0/stacks/supabase";
+import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.1/stacks/supabase";
 Deno.serve(createSupabaseHandler(mcp_default, { functionName: "mcp" }));
