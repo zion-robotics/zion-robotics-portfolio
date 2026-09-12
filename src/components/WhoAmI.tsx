@@ -46,6 +46,7 @@ type ContainerStyle = CSSProperties & {
 
 const WhoAmI = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const assemblyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -74,10 +75,15 @@ const WhoAmI = () => {
 
         section.style.setProperty("--section-parallax", `${progress * 24}px`);
 
-        const activationRange = window.innerHeight * 0.75;
+        const assemblyElement = assemblyRef.current;
+        if (!assemblyElement) return;
+
+        const assemblyRect = assemblyElement.getBoundingClientRect();
+        const assemblyCenter = assemblyRect.top + assemblyRect.height / 2;
+        const activationRange = window.innerHeight / 2 + assemblyRect.height / 2;
         const assembly = Math.max(
           0,
-          Math.min(1, 1 - Math.abs(sectionCenter - viewportCenter) / activationRange),
+          Math.min(1, 1 - Math.abs(assemblyCenter - viewportCenter) / activationRange),
         );
 
         // Smooth acceleration and deceleration in both scroll directions.
@@ -126,7 +132,7 @@ const WhoAmI = () => {
           <p className="identity-intro">Three disciplines. One builder.</p>
         </div>
 
-        <div className="container-yard">
+        <div ref={assemblyRef} className="container-yard">
           {BRANCHES.map((branch, index) => (
             <div
               key={branch.path}
