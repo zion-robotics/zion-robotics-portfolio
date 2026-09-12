@@ -62,8 +62,6 @@ const WhoAmI = () => {
     let current = 0;
     let target = 0;
 
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
     // Scroll window: starts when the yard's top edge crosses 88% of the
     // viewport, completes when the yard is centred at 52% of the viewport.
     const computeTarget = () => {
@@ -75,7 +73,7 @@ const WhoAmI = () => {
     };
 
     const apply = (v: number) => {
-      section.style.setProperty("--assembly", easeOutCubic(v).toFixed(4));
+      section.style.setProperty("--assembly", v.toFixed(4));
       const r = section.getBoundingClientRect();
       const p = Math.max(
         -1,
