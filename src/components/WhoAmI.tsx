@@ -51,56 +51,70 @@ const WhoAmI = () => {
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const yard = assemblyRef.current;
+    if (!section || !yard) return;
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobile = window.matchMedia("(max-width: 760px)");
 
-    if (reduceMotion) return;
+    let raf = 0;
+    let running = false;
+    let current = 0;
+    let target = 0;
 
-    let frame = 0;
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
-    const updateParallax = () => {
-      cancelAnimationFrame(frame);
-
-      frame = requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const viewportCenter = window.innerHeight / 2;
-        const sectionCenter = rect.top + rect.height / 2;
-        const progress = Math.max(
-          -1,
-          Math.min(1, (sectionCenter - viewportCenter) / window.innerHeight),
-        );
-
-        section.style.setProperty("--section-parallax", `${progress * 24}px`);
-
-        const assemblyElement = assemblyRef.current;
-        if (!assemblyElement) return;
-
-        const assemblyRect = assemblyElement.getBoundingClientRect();
-        const assemblyCenter = assemblyRect.top + assemblyRect.height / 2;
-        const activationRange = window.innerHeight / 2 + assemblyRect.height / 2;
-        const assembly = Math.max(
-          0,
-          Math.min(1, 1 - Math.abs(assemblyCenter - viewportCenter) / activationRange),
-        );
-
-        // Smooth acceleration and deceleration in both scroll directions.
-        const eased = assembly * assembly * (3 - 2 * assembly);
-
-        section.style.setProperty("--assembly", eased.toFixed(4));
-      });
+    // Scroll window: starts when the yard's top edge crosses 88% of the
+    // viewport, completes when the yard is centred at 52% of the viewport.
+    const computeTarget = () => {
+      const rect = yard.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const start = vh * 0.88;
+      const end = vh * 0.52 - rect.height / 2;
+      return Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
     };
 
-    updateParallax();
-    window.addEventListener("scroll", updateParallax, { passive: true });
-    window.addEventListener("resize", updateParallax);
+    const apply = (v: number) => {
+      section.style.setProperty("--assembly", easeOutCubic(v).toFixed(4));
+      const r = section.getBoundingClientRect();
+      const p = Math.max(
+        -1,
+        Math.min(1, (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight),
+      );
+      section.style.setProperty("--section-parallax", `${p * 24}px`);
+    };
+
+    const tick = () => {
+      current += (target - current) * 0.14; // scrub smoothing, both directions
+      if (Math.abs(target - current) < 0.001) {
+        current = target;
+        running = false;
+      }
+      apply(current);
+      raf = running ? requestAnimationFrame(tick) : 0;
+    };
+
+    const onScroll = () => {
+      if (reduce.matches || mobile.matches) {
+        section.style.setProperty("--assembly", "1");
+        section.style.setProperty("--section-parallax", "0px");
+        return;
+      }
+      target = computeTarget();
+      if (!running) {
+        running = true;
+        raf = requestAnimationFrame(tick);
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
 
     return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updateParallax);
-      window.removeEventListener("resize", updateParallax);
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 

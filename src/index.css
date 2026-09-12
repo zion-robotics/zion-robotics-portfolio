@@ -668,10 +668,11 @@
 .identity-section { --assembly: 0; }
 .container-position[data-side="left"],
 .container-position[data-side="right"] {
-  --split-x: calc((1 - var(--assembly)) * 65vw);
-  --split-y: calc((1 - var(--assembly)) * 90px);
+  --split-x: calc((1 - var(--assembly)) * 60vw);
+  --split-y: calc((1 - var(--assembly)) * 70px);
   --split-rot: calc((1 - var(--assembly)) * 8deg);
-  opacity: var(--assembly);
+  opacity: calc(0.12 + var(--assembly) * 0.88);
+  pointer-events: auto;
   will-change: transform, opacity;
 }
 .container-position[data-side="middle"] {
