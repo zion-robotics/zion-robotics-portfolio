@@ -58,8 +58,6 @@ const WhoAmI = () => {
 
     if (reduceMotion) return;
 
-    const yard = section.querySelector<HTMLElement>(".container-yard");
-
     let frame = 0;
 
     const updateParallax = () => {
@@ -76,14 +74,10 @@ const WhoAmI = () => {
 
         section.style.setProperty("--section-parallax", `${progress * 24}px`);
 
-        // Drive the animation from the card row's viewport position.
-        const yardTop = (yard ?? section).getBoundingClientRect().top;
-        const start = window.innerHeight * 0.98;
-        const end = window.innerHeight * 0.42;
-
+        const activationRange = window.innerHeight * 0.75;
         const assembly = Math.max(
           0,
-          Math.min(1, (start - yardTop) / (start - end)),
+          Math.min(1, 1 - Math.abs(sectionCenter - viewportCenter) / activationRange),
         );
 
         // Smooth acceleration and deceleration in both scroll directions.
