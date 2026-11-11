@@ -50,7 +50,9 @@
     font-family: 'DM Sans', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+    font-variation-settings: 'wdth' 100;
+    letter-spacing: -0.02em;
   }
 }
 /* stylelint-enable at-rule-no-unknown */
@@ -639,9 +641,9 @@
 .identity-name {
   margin: 0;
   color: hsl(var(--foreground));
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
   font-size: clamp(3.7rem, 12vw, 7.5rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -816,7 +818,7 @@
 }
 .container-title {
   display: block;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
   font-size: clamp(1rem, 2vw, 1.35rem);
   font-weight: 800;
   letter-spacing: 0;

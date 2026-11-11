@@ -14,9 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"],
-        exo: ["Exo 2", "sans-serif"],
-        body: ["DM Sans", "sans-serif"],
+        // Class names kept so no page needs editing: orbitron = display, exo = mono labels
+        orbitron: ["Bricolage Grotesque", "DM Sans", "system-ui", "sans-serif"],
+        exo: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        body: ["DM Sans", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "DM Sans", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
